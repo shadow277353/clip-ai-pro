@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: clipai-pro
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: WHISPER_MODEL
+        value: base
+      - key: MAX_UPLOAD_MB
+        value: "500"

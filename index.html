@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b0d12"><title>ClipAI Pro</title>
+<style>
+:root{color-scheme:dark;--bg:#0b0d12;--p:#151a25;--p2:#1c2331;--line:#2b3345;--txt:#f6f7fb;--muted:#a4aec1;--accent:#b4a0ff;--green:#7ee7bd;--red:#ff9eb0}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(800px 450px at 85% -15%,#33245d 0%,transparent 60%),var(--bg);color:var(--txt);font:15px/1.45 system-ui,-apple-system,sans-serif}header{position:sticky;top:0;z-index:5;background:#0b0d12ed;backdrop-filter:blur(15px);padding:15px max(14px,env(safe-area-inset-left));border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.brand{font-size:20px;font-weight:850}.logo{display:inline-grid;place-items:center;background:linear-gradient(135deg,#c4b5fd,#818cf8);color:#15102a;border-radius:10px;width:31px;height:31px;margin-right:8px}.tag{border:1px solid #35614f;color:var(--green);font-size:10px;border-radius:99px;padding:5px 8px}main{max-width:1100px;margin:auto;padding:22px 13px 60px}.hero h1{font-size:clamp(30px,6vw,44px);letter-spacing:-1px;line-height:1.08;margin:8px 0}.hero p{color:var(--muted);max-width:720px}.eyebrow{font-size:11px;color:var(--accent);letter-spacing:1.5px;font-weight:800}.grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:20px}.panel{min-width:0;background:linear-gradient(180deg,#171c27,#121620);border:1px solid var(--line);border-radius:16px;padding:15px}.panel h2{font-size:16px;margin:0 0 13px}.step{display:inline-grid;place-items:center;background:#30264b;color:#ded5ff;border-radius:7px;width:23px;height:23px;margin-right:7px;font-size:12px}.drop{display:block;border:1px dashed #58617a;background:#10141d;border-radius:13px;text-align:center;padding:21px;cursor:pointer}.drop strong{display:block;margin:7px}.muted,small,.hint{color:var(--muted)}small,.hint{font-size:12px}input,select,textarea{width:100%;min-width:0;background:#0d1119;border:1px solid var(--line);border-radius:9px;padding:10px;color:var(--txt);font:inherit}input[type=file]{display:none}input[type=range]{padding:0;accent-color:var(--accent)}label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}.field{margin:11px 0}.two{display:grid;grid-template-columns:1fr 1fr;gap:9px}button,.btn{border:0;border-radius:10px;padding:10px 12px;background:var(--accent);color:#17102b;font:inherit;font-weight:750;cursor:pointer;display:inline-flex;justify-content:center;align-items:center;gap:6px}button:disabled{opacity:.45;cursor:not-allowed}.secondary{background:var(--p2);border:1px solid var(--line);color:var(--txt)}.danger{background:#42202b;color:#ffc8d2}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.actions button{flex:1}.status{margin-top:10px;padding:10px 11px;background:#10141d;border:1px solid var(--line);border-radius:10px;color:var(--muted);font-size:12px;overflow-wrap:anywhere}.status.good{color:#a7f3d0;border-color:#285744}.status.warn{color:#ffdda2;border-color:#70542a}.progress{height:5px;background:#272d3b;border-radius:99px;overflow:hidden;margin-top:10px}.bar{height:100%;width:0;background:linear-gradient(90deg,#8b5cf6,#6ee7b7);transition:width .3s}video{width:100%;max-height:350px;background:#030407;border-radius:10px;margin-top:12px}.clip{border:1px solid var(--line);background:#10141d;border-radius:11px;padding:11px;margin:8px 0;display:grid;grid-template-columns:35px 1fr auto;gap:9px;align-items:center}.clip .n{height:40px;border-radius:8px;display:grid;place-items:center;background:#30264b;color:#e2d8ff;font-weight:800}.clip b{display:block;font-size:13px}.clip small{display:block;margin-top:3px}.clip button{font-size:11px;padding:7px}.results{max-height:230px;overflow:auto}.result{border-bottom:1px solid var(--line);padding:9px 0;font-size:13px}.result button{padding:5px 8px;font-size:11px}.empty{padding:22px;text-align:center;color:#788397}.full{width:100%}footer{text-align:center;color:#7e899d;font-size:12px;margin:20px auto;max-width:760px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.panel{padding:13px}.tag{font-size:9px}.hero p{font-size:14px}}
+</style></head><body>
+<header><div class="brand"><span class="logo">C</span>ClipAI <span class="muted" style="font-weight:500">Pro</span></div><span class="tag">AI CLIP STUDIO</span></header>
+<main><section class="hero"><div class="eyebrow">UPLOAD · ANALYZE · CLIP · PUBLISH</div><h1>Make short videos.<br><span style="color:#b8a5ff">Skip the busywork.</span></h1><p>AI transcription, highlight suggestions, subtitle-burned clips, transcript search and optional YouTube uploads in one mobile-friendly studio.</p></section>
+<div class="grid">
+<section class="panel"><h2><span class="step">1</span>Upload & analyze</h2>
+<label class="drop" for="file"><span style="font-size:27px">⬆️</span><strong>Choose a video file</strong><small>MP4, MOV, WebM, MKV · server processing required</small></label><input id="file" type="file" accept="video/*">
+<div class="status" id="uploadStatus">No video uploaded yet.</div><div class="progress"><div class="bar" id="bar"></div></div>
+<div class="actions"><button id="analyze" disabled>✨ Analyze video</button><button class="secondary" id="refresh" disabled>Refresh status</button></div>
+<div class="status warn">Privacy note: your video is sent to the server you deploy this app on. Use a trusted host and only upload content you have rights to process.</div>
+</section>
+<section class="panel"><h2><span class="step">2</span>Clip settings</h2>
+<div class="two"><div class="field"><label for="ratio">Aspect ratio</label><select id="ratio"><option>9:16</option><option>1:1</option><option>16:9</option></select></div><div class="field"><label for="quality">Resolution</label><select id="quality"><option value="720">720p</option><option value="480">480p</option><option value="1080">1080p</option></select></div></div>
+<div class="field"><label><input type="checkbox" id="burn" checked style="width:auto"> Burn subtitles into video</label></div>
+<h3 style="font-size:14px">Make a custom clip</h3><div class="two"><div class="field"><label for="start">Start (seconds)</label><input id="start" type="number" min="0" step=".1" value="0"></div><div class="field"><label for="end">End (seconds)</label><input id="end" type="number" min="1" step=".1" value="30"></div></div>
+<div class="field"><label for="title">Clip title</label><input id="title" maxlength="100" placeholder="A hook or title"></div>
+<button class="secondary full" id="manual" disabled>＋ Add custom clip</button>
+<div class="status" id="renderStatus">Choose a video, then analyze it to get suggested moments.</div>
+</section>
+<section class="panel"><h2><span class="step">3</span>AI clip suggestions</h2><div class="hint">Suggestions are ranked by transcript-based heuristics; scores don't guarantee virality.</div><div id="clips" class="empty">Your suggested clips will appear here.</div></section>
+<section class="panel"><h2><span class="step">4</span>Search transcript</h2><div class="field"><label for="query">Search words or phrases in the video</label><input id="query" placeholder="e.g. money, mindset, lesson"></div><button id="search" class="secondary full" disabled>Search transcript</button><div id="results" class="results"></div></section>
+<section class="panel"><h2><span class="step">5</span>YouTube posting</h2><p class="hint">Connect your own YouTube account via Google OAuth. Start with private uploads. OAuth and API setup are required.</p><button class="secondary full" id="connect">Connect YouTube</button><div class="field"><label for="ytTitle">YouTube title</label><input id="ytTitle" maxlength="100" placeholder="Title for Shorts"></div><div class="field"><label for="ytDesc">Description</label><textarea id="ytDesc" rows="2" placeholder="Description and hashtags"></textarea></div><div class="field"><label for="privacy">Visibility</label><select id="privacy"><option value="private">Private (recommended for testing)</option><option value="unlisted">Unlisted</option><option value="public">Public</option></select></div><div class="status warn">Auto-posting is opt-in and requires a configured Google Cloud OAuth client. No post is made without your action.</div><div id="postStatus" class="status">Connect YouTube and render a clip before posting.</div></section>
+<section class="panel"><h2><span class="step">6</span>Job information</h2><div id="jobInfo" class="status">No active job.</div><video id="player" controls playsinline hidden></video><div class="actions"><button id="download" disabled>⬇ Download selected</button><button id="post" disabled>Post selected clip</button></div><div class="hint">If processing takes a while, keep this page open and tap Refresh status.</div></section>
+</div><footer>ClipAI Pro is an independent starter project, not affiliated with Razycut. YouTube upload uses official Google APIs. The host's free tier may sleep, limit processing time, or delete temporary storage.</footer></main>
+<script>
+let job=null, selected=null, pollTimer=null;
+const $=x=>document.getElementById(x);
+async function api(url,opts={}){const r=await fetch(url,opts);let d;try{d=await r.json()}catch{d={detail:await r.text()}}if(!r.ok)throw new Error(d.detail||'Request failed');return d}
+function status(id,msg,kind=''){const e=$(id);e.textContent=msg;e.className='status '+kind}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+$('file').onchange=async()=>{
+ const f=$('file').files[0];if(!f)return;
+ status('uploadStatus',`Uploading ${f.name} (${(f.size/1048576).toFixed(1)} MB)…`);$('bar').style.width='8%';
+ const fd=new FormData();fd.append('file',f);
+ try{job=await api('/api/upload',{method:'POST',body:fd});$('bar').style.width='100%';status('uploadStatus',`Uploaded: ${job.filename}`,'good');$('analyze').disabled=false;$('refresh').disabled=false;$('manual').disabled=false;$('search').disabled=false;updateInfo();}
+ catch(e){status('uploadStatus',e.message,'warn');$('bar').style.width='0%'}
+};
+$('analyze').onclick=async()=>{
+ if(!job)return;try{job=await api('/api/analyze/'+job.id,{method:'POST'});status('uploadStatus','AI analysis started. Transcription can take a while.');$('bar').style.width='15%';poll();}catch(e){status('uploadStatus',e.message,'warn')}
+};
+async function poll(){if(!job)return;try{job=await api('/api/jobs/'+job.id);render();if(['analyzing','rendering'].includes(job.status)){setTimeout(poll,4000)}else{$('bar').style.width=job.status==='ready'?'100%':'0%';status('uploadStatus',job.message||job.status,job.status==='ready'?'good':job.status==='error'?'warn':'');}}catch(e){status('uploadStatus',e.message,'warn')}}
+$('refresh').onclick=poll;
+function updateInfo(){if(job)status('jobInfo',`Job ${job.id} · ${job.filename} · status: ${job.status} · duration: ${job.duration?Math.round(job.duration)+' sec':'pending'}`)}
+function render(){
+ if(!job)return;updateInfo();const root=$('clips');root.innerHTML='';
+ if(!job.clips?.length){root.textContent=job.message||'No clips yet.';root.className='empty';return}
+ root.className='';
+ job.clips.forEach((c,i)=>{const d=document.createElement('div');d.className='clip';d.style.borderColor=c.id===selected?'#b4a0ff':'';d.innerHTML=`<div class="n">${String(i+1).padStart(2,'0')}</div><div><b>${esc(c.title)}</b><small>${Number(c.start).toFixed(1)}s–${Number(c.end).toFixed(1)}s · score ${c.score??0}${c.file?' · rendered':''}</small><small>${esc((c.text||'').slice(0,110))}</small></div><div style="display:grid;gap:5px"><button class="secondary" data-select="${c.id}">Select</button><button data-render="${c.id}">Render</button></div>`;
+ root.append(d)});
+ root.querySelectorAll('[data-select]').forEach(b=>b.onclick=()=>{selected=b.dataset.select;const c=job.clips.find(x=>x.id===selected);$('start').value=c.start;$('end').value=c.end;$('title').value=c.title;render();$('download').disabled=!c.file;$('post').disabled=!c.file;if(c.file){$('player').hidden=false;$('player').src=c.url}});
+ root.querySelectorAll('[data-render]').forEach(b=>b.onclick=()=>renderClip(b.dataset.render));
+ if(!selected&&job.clips.length){selected=job.clips[0].id;render()}
+}
+async function renderClip(id){
+ selected=id;status('renderStatus','Rendering clip and burning subtitles… this can take several minutes.');
+ const fd=new FormData();fd.append('ratio',$('ratio').value);fd.append('quality',$('quality').value);fd.append('burn',$('burn').checked?'true':'false');
+ try{await api(`/api/render/${job.id}/${id}`,{method:'POST',body:fd});setTimeout(poll,1500)}catch(e){status('renderStatus',e.message,'warn')}
+}
+$('manual').onclick=async()=>{
+ if(!job)return;const fd=new FormData();fd.append('start',$('start').value);fd.append('end',$('end').value);fd.append('title',$('title').value||'My clip');
+ try{const c=await api('/api/manual-clip/'+job.id,{method:'POST',body:fd});job.clips.push(c);selected=c.id;render();status('renderStatus','Custom clip added. Tap Render on it to create the video.','good')}catch(e){status('renderStatus',e.message,'warn')}
+};
+$('search').onclick=async()=>{
+ if(!job)return;const q=$('query').value.trim();if(!q)return;const root=$('results');root.textContent='Searching…';
+ try{const d=await api(`/api/search/${job.id}?q=${encodeURIComponent(q)}`);root.innerHTML=d.results.length?d.results.map(r=>`<div class="result"><b>${Number(r.start).toFixed(1)}s</b> — ${esc(r.text)} <button class="secondary" data-time="${r.start}">Use time</button></div>`).join(''):'No matches found.';
+ root.querySelectorAll('[data-time]').forEach(b=>b.onclick=()=>{$('start').value=Math.max(0,Number(b.dataset.time)-2);$('end').value=Number(b.dataset.time)+25;$('title').value='Search result clip';status('renderStatus','Times copied. Add custom clip, then render it.')})
+ }catch(e){root.textContent=e.message}
+};
+$('connect').onclick=async()=>{try{const d=await api('/api/youtube/auth-url',{method:'POST'});location.href=d.url}catch(e){status('postStatus',e.message,'warn')}};
+$('post').onclick=async()=>{
+ if(!job||!selected)return;const fd=new FormData();fd.append('title',$('ytTitle').value||$('title').value||'ClipAI Short');fd.append('description',$('ytDesc').value);fd.append('privacy',$('privacy').value);
+ status('postStatus','Uploading to YouTube…');
+ try{const d=await api(`/api/youtube/post/${job.id}/${selected}`,{method:'POST',body:fd});status('postStatus',`Posted successfully: ${d.url}`,'good');}
+ catch(e){status('postStatus',e.message,'warn')}
+};
+$('download').onclick=()=>{if(!job||!selected)return;const c=job.clips.find(x=>x.id===selected);if(c?.url){const a=document.createElement('a');a.href=c.url;a.download=c.file||'clip.mp4';a.click()}};
+</script></body></html>
